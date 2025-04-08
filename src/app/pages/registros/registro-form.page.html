@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>{{ isEdit ? 'Editar' : 'Nuevo' }} Registro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="ion-padding">
+    <form (ngSubmit)="guardar()">
+      <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input [(ngModel)]="registro.titulo" name="titulo" required></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">Descripción</ion-label>
+        <ion-textarea [(ngModel)]="registro.descripcion" name="descripcion"></ion-textarea>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Estado</ion-label>
+        <ion-select [(ngModel)]="registro.estado" name="estado">
+          <ion-select-option value="activo">Activo</ion-select-option>
+          <ion-select-option value="inactivo">Inactivo</ion-select-option>
+          <ion-select-option value="pendiente">Pendiente</ion-select-option>
+        </ion-select>
+      </ion-item>
+  
+      <ion-button expand="block" type="submit" class="ion-margin-top">
+        {{ isEdit ? 'Actualizar' : 'Guardar' }}
+      </ion-button>
+    </form>
+  </ion-content>
+  
